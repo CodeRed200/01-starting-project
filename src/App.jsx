@@ -1,6 +1,7 @@
 
 import reactImg from './assets/react-core-concepts.png';
 import componentImg from './assets/components.png';
+import {CORE_CONCEPTS } from './data.js';
 const reactDesriptions = ['Fundamental', 'Crucial', 'Core'];
 
 function genRandomInt(max){
@@ -24,11 +25,11 @@ function Header(){
 }
 
 
-function CoreConcepts(props){
+function CoreConcepts({image, title, description}) {
   return <li>
-    <img src={props.image} alt={props.title} />
-    <h3>{props.title}</h3>
-    <p>{props.description}</p>
+    <img src={image} alt={title} />
+    <h3>{title}</h3>
+    <p>{description}</p>
   </li>
 }
 
@@ -41,18 +42,20 @@ function App() {
         <section id="core-concepts">
         <h2>Time to get started!</h2>
         <ul>
+          <CoreConcepts {...CORE_CONCEPTS[0]} />
           <CoreConcepts 
-           title="Components"
-           description="Learn how to create and use React components."
-           image={componentImg} />
+           title={CORE_CONCEPTS[1].title}
+           description={CORE_CONCEPTS[1].description}
+           image={CORE_CONCEPTS[1].image} />
           <CoreConcepts 
-          title="Props" 
-          description="Understand how to pass data between components." 
-          image={componentImg} />
-          <CoreConcepts 
-          title="State" 
-          description="Discover how to manage and update component data." 
-          image={componentImg} />
+           title={CORE_CONCEPTS[2].title}
+           description={CORE_CONCEPTS[2].description}
+           image={CORE_CONCEPTS[2].image} />
+            <CoreConcepts 
+           title={CORE_CONCEPTS[3].title}
+           description={CORE_CONCEPTS[3].description}
+           image={CORE_CONCEPTS[3].image} />
+     
         </ul>
         </section>
       </main>
